@@ -1,4 +1,5 @@
 <?php
+session_start();
 require 'db.php';
 ?>
 <!DOCTYPE html>
@@ -12,15 +13,7 @@ require 'db.php';
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Merriweather:wght@300;700&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <?php if (isset($_GET['success']) && $_GET['success'] == 1): ?>
-        <div id="successMessage" class="success-popup">Регистрация успешна!</div>
-        <script>
-            setTimeout(() => {
-                document.getElementById('successMessage').style.display = 'none';
-            }, 3000);
-        </script>
-    <?php endif; ?>
-    <header>
+<header>
         <div class="logo">
             <img src="img/logo.png">
             Pillow & Blanket
@@ -28,9 +21,13 @@ require 'db.php';
         <button class="menu-button" onclick="toggleMenu()">☰ Меню</button>
         <nav>
             <ul class="nav-menu">
-                <li><a href="registration.php">Регистрация</a></li>
-                <li><a href="#auth">Авторизация</a></li>
-                <li><a href="account.php">Личный кабинет</a></li>
+                <?php if (isset($_SESSION['user_email'])): ?>
+                    <li><a href="account.php">Личный кабинет (<?php echo $_SESSION['user_email']; ?>)</a></li>
+                    <li><a href="logout.php">Выход</a></li>
+                <?php else: ?>
+                    <li><a href="registration.php">Регистрация</a></li>
+                    <li><a href="#auth">Авторизация</a></li>
+                <?php endif; ?>
                 <li><a href="#about">О нас</a></li>
                 <li><a href="products.php">Товары</a></li>
                 <li><a href="set_of_products.php">Корзина</a></li>
@@ -39,9 +36,13 @@ require 'db.php';
                 <li><a href="#contacts">Контакты</a></li>
             </ul>
             <div class="menu-dropdown" id="menuDropdown">
-                <a href="registration.php">Регистрация</a>
-                <a href="#auth">Авторизация</a>
-                <a href="account.php">Личный кабинет</a>
+                <?php if (isset($_SESSION['user_email'])): ?>
+                    <a href="account.php">Личный кабинет (<?php echo $_SESSION['user_email']; ?>)</a>
+                    <a href="logout.php">Выход</a>
+                <?php else: ?>
+                    <a href="registration.php">Регистрация</a>
+                    <a href="#auth">Авторизация</a>
+                <?php endif; ?>
                 <a href="#about">О нас</a>
                 <a href="products.php">Товары</a>
                 <a href="set_of_products.php">Корзина</a>
@@ -70,17 +71,19 @@ require 'db.php';
         <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
         <button class="next" onclick="moveSlide(1)">&#10095;</button>
     </section>
+    <?php if (isset($_SESSION['user_email'])): ?>
+    <?php else: ?>
     <section id="auth">
         <div class="auth-container">
             <h2>Авторизация</h2>
-            <form>
-                <input type="email" placeholder="Введите ваш Email" required>
-                <input type="password" placeholder="Введите пароль" required>
+            <form action="authorization.php" method="POST">
+                <input type="email" name="email" placeholder="Введите ваш Email" required>
+                <input type="password" name="password" placeholder="Введите пароль" required>
                 <button type="submit">Войти</button>
-                <a href="#" class="forgot-password">Забыли пароль?</a>
             </form>
         </div>
     </section>
+    <?php endif; ?>
     <footer id="contacts">
         <p>Контактная информация</p>
     </footer>
