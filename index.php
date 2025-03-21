@@ -84,6 +84,83 @@ require 'db.php';
         </div>
     </section>
     <?php endif; ?>
+    <section id="about" class="about-section">
+        <div class="about-container">
+            <h2>О компании Pillow & Blanket</h2>
+            <p>
+                Мы — интернет-магазин, специализирующийся на продаже качественного постельного белья.
+                Наша цель — обеспечить вас уютом, комфортом и сладкими снами. 
+                Мы предлагаем широкий ассортимент товаров из натуральных материалов, следим за модными тенденциями и заботимся о вашем здоровье.
+            </p>
+            <p>
+                Заказывая у нас, вы получаете быструю доставку, приятные цены и гарантированное качество.
+                Pillow & Blanket — уют начинается с мелочей.
+            </p>
+        </div>
+    </section>
+    <section class="info-sections">
+        <div class="info-block left-text">
+            <div class="text">
+                <h2>Наш подход</h2>
+                <p>Мы тщательно подбираем материалы, чтобы ваше постельное бельё было не только красивым, но и максимально комфортным и гипоаллергенным.</p>
+            </div>
+            <div class="image">
+                <img src="img/first.jpg" alt="Комфорт и качество">
+            </div>
+        </div>
+
+        <div class="info-block right-text">
+            <div class="image">
+                <img src="img/second.jpg" alt="Дизайн и уют">
+            </div>
+            <div class="text">
+                <h2>Дизайн и уют</h2>
+                <p>Мы следим за последними трендами, чтобы создать атмосферу уюта в вашем доме с помощью стильных и функциональных комплектов.</p>
+            </div>
+        </div>
+    </section>
+    <section id="reviews" class="reviews-section">
+    <h2>Отзывы клиентов</h2>
+    <div class="reviews-slider">
+        <div class="review-slide">
+            <img src="">
+            <div class="review-content">
+                <h3>Иван Иванов</h3>
+                <p class="review-text">Прекрасное качество белья! Буду заказывать ещё.</p>
+                <p class="review-date">15 марта 2025</p>
+                <a href="" class="review-link">Посмотреть товар</a>
+            </div>
+        </div>
+        <div class="review-slide">
+            <img src="">
+            <div class="review-content">
+                <h3>Сергей Смирнов</h3>
+                <p class="review-text">Доставили быстро, всё как на фото. Очень доволен покупкой.</p>
+                <p class="review-date">27 января 2025</p>
+                <a href="" class="review-link">Посмотреть товар</a>
+            </div>
+        </div>
+        <div class="review-slide">
+            <img src="">
+            <div class="review-content">
+                <h3>Ирина Кузнецова</h3>
+                <p class="review-text">Цвета невероятные, ткань приятная. Спасибо за уют!</p>
+                <p class="review-date">1 февраля 2025</p>
+                <a href="" class="review-link">Посмотреть товар</a>
+            </div>
+        </div>
+        <div class="review-slide">
+            <img src="">
+            <div class="review-content">
+                <h3>Максим </h3>
+                <p class="review-text">Цвета невероятные, ткань приятная. Спасибо за уют!</p>
+                <p class="review-date">10 февраля 2025</p>
+                <a href="" class="review-link">Посмотреть товар</a>
+            </div>
+        </div>
+    </div>
+</section>
+
     <footer id="contacts">
         <p>Контактная информация</p>
     </footer>
