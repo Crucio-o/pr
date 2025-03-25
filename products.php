@@ -1,7 +1,33 @@
 <?php
 session_start();
 require_once 'db.php';
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['product_id'])) {
+    if (!isset($_SESSION['user_id'])) {
+        header('Location: registration.php');
+        exit();
+    }
 
+    $product_id = (int)$_POST['product_id'];
+    $user_id = $_SESSION['user_id'];
+    $stmt = $pdo->prepare("SELECT * FROM cart WHERE user_id = ? AND product_id = ?");
+    $stmt->execute([$user_id, $product_id]);
+    $existing = $stmt->fetch();
+
+    if ($existing) {
+        $stmt = $pdo->prepare("UPDATE cart SET quantity = quantity + 1 WHERE id_cart = ?");
+        $stmt->execute([$existing['id_cart']]);
+    } else {
+        $stmt = $pdo->prepare("SELECT price FROM products WHERE id_product = ?");
+        $stmt->execute([$product_id]);
+        $price = $stmt->fetchColumn();
+
+        $stmt = $pdo->prepare("INSERT INTO cart (user_id, product_id, quantity, act_price) VALUES (?, ?, 1, ?)");
+        $stmt->execute([$user_id, $product_id, $price]);
+    }
+
+    header('Location: ' . $_SERVER['REQUEST_URI']);
+    exit();
+}
 $stmt = $pdo->query("SELECT * FROM products");
 $products = $stmt->fetchAll();
 ?>
@@ -9,6 +35,7 @@ $products = $stmt->fetchAll();
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Товары</title>
     <link rel="icon" href="img/logo.png">
     <link rel="stylesheet" href="styles/style-prod.css">
@@ -53,8 +80,12 @@ $products = $stmt->fetchAll();
                 <h3><?= htmlspecialchars($product['name']) ?></h3>
                 <p><?= htmlspecialchars($product['description']) ?></p>
                 <p class="price"><?= $product['price'] ?> ₽ / шт</p>
-                <button>В корзину</button>
-            </div>
+                <form method="post" class="add-to-cart-form">
+                <input type="hidden" name="product_id" value="<?= $product['id_product'] ?>">
+        <button type="submit">В корзину</button>
+    </form>
+</div>
+
         <?php endforeach; ?>
     </div>
 </section>
