@@ -69,6 +69,13 @@ nav ul li a:hover {
     background: #e0e0e0;
 }
 
+.main-content {
+    max-width: 1000px; 
+    margin: 0 auto;  
+    padding: 0 20px;  
+}
+
+
 .menu-button {
     display: none;
     margin-left: auto;
@@ -135,10 +142,54 @@ nav ul li a:hover {
 
 .item-info {
     flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 12px;
+    position: relative;
+    padding-right: 220px;
 }
 
 .total {
     font-size: 20px;
     font-weight: bold;
     margin-top: 30px;
+}
+
+.quantity-form,
+.delete-form,
+.order-form {
+    position: absolute;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.quantity-form {
+    top: 0;
+}
+
+.delete-form {
+    top: 45px;
+}
+
+.order-form {
+    top: 90px;
+}
+
+.quantity-form span {
+    min-width: 24px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.quantity-form button,
+.delete-form button,
+.order-form button {
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    white-space: nowrap;
+    min-width: 90px;
 }
