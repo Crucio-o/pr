@@ -21,7 +21,6 @@ $cartItems = $stmt->fetchAll();
 
 $total = 0;
 ?>
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -64,28 +63,48 @@ $total = 0;
             </div>
         </nav>
     </header>
+    <div class="main-content">
     <h1>Моя корзина</h1>
     <?php if (count($cartItems) > 0): ?>
         <?php foreach ($cartItems as $row): 
-            $item_total = $row['act_price'] * $row['quantity'];
-            $total += $item_total;
-        ?>
-            <div class="cart-item">
-                <img src="<?= htmlspecialchars($row['image_url']) ?>" alt="<?= htmlspecialchars($row['name']) ?>">
-                <div class="item-info">
-                    <h3><?= htmlspecialchars($row['name']) ?></h3>
-                    <p>Цена за шт: <?= $row['act_price'] ?>₽</p>
-                    <p>Количество: <?= $row['quantity'] ?></p>
-                    <p>Сумма: <?= $item_total ?>₽</p>
-                </div>
-            </div>
-        <?php endforeach; ?>
+    $item_total = $row['act_price'] * $row['quantity'];
+    $total += $item_total;
+?>
+    <div class="cart-item">
+        <img src="<?= htmlspecialchars($row['image_url']) ?>" alt="<?= htmlspecialchars($row['name']) ?>">
+        <div class="item-info">
+            <h3><?= htmlspecialchars($row['name']) ?></h3>
+            <p>Цена за шт: <?= $row['act_price'] ?>₽</p>
+
+            <form action="update.php" method="post" class="quantity-form">
+                <input type="hidden" name="id_cart" value="<?= $row['id_cart'] ?>">
+                <button type="submit" name="action" value="decrease">−</button>
+                <span><?= $row['quantity'] ?></span>
+                <button type="submit" name="action" value="increase">+</button>
+            </form>
+
+            <p>Сумма: <?= $item_total ?>₽</p>
+
+            <form action="delete.php" method="post" class="delete-form">
+                <input type="hidden" name="id_cart" value="<?= $row['id_cart'] ?>">
+                <button type="submit" onclick="return confirm('Удалить этот товар из корзины?')">Удалить</button>
+            </form>
+
+            <form action="order.php" method="post" class="order-form">
+                <input type="hidden" name="id_cart" value="<?= $row['id_cart'] ?>">
+                <button type="submit">Заказать</button>
+            </form>
+        </div>
+    </div>
+<?php endforeach; ?>
+
 
         <div class="total">Общая сумма: <?= $total ?>₽</div>
 
     <?php else: ?>
         <p>Ваша корзина пуста.</p>
     <?php endif; ?>
+    </div>
     <script>
         function toggleMenu() {
             const menu = document.getElementById("menuDropdown");
