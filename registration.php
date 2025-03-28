@@ -1,6 +1,6 @@
 <?php
-require 'db.php'; 
 session_start();
+require 'db.php'; 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = trim($_POST['email']);
@@ -60,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
     <nav>
         <ul class="nav-menu">
-            <li><a href="index.php">Назад</a></li>
+            <li><a href="index.php">На главную</a></li>
         </ul>
     </nav>
 </header>
