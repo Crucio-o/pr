@@ -23,22 +23,20 @@ require 'db.php';
             <ul class="nav-menu">
                 <?php if (isset($_SESSION['user_email'])): ?>
                     <li><a href="account.php">Личный кабинет (<?php echo $_SESSION['user_email']; ?>)</a></li>
-                    <li><a href="logout.php">Выход</a></li>
+                    <li><a href="set_of_products.php">Корзина</a></li>
+                    <li><a href="zakaz.php">Заказы</a></li>
                 <?php else: ?>
                     <li><a href="registration.php">Регистрация</a></li>
                     <li><a href="#auth">Авторизация</a></li>
                 <?php endif; ?>
                 <li><a href="#about">О нас</a></li>
                 <li><a href="products.php">Товары</a></li>
-                <li><a href="set_of_products.php">Корзина</a></li>
-                <li><a href="zakaz.php">Заказы</a></li>
                 <li><a href="#search">Поиск</a></li>
                 <li><a href="#contacts">Контакты</a></li>
             </ul>
             <div class="menu-dropdown" id="menuDropdown">
                 <?php if (isset($_SESSION['user_email'])): ?>
                     <a href="account.php">Личный кабинет (<?php echo $_SESSION['user_email']; ?>)</a>
-                    <a href="logout.php">Выход</a>
                 <?php else: ?>
                     <a href="registration.php">Регистрация</a>
                     <a href="#auth">Авторизация</a>
@@ -161,9 +159,10 @@ require 'db.php';
     </div>
 </section>
 
-    <footer id="contacts">
+<footer>
         <p>Контактная информация</p>
-    </footer>
+</footer>
+
     <script>
         let currentSlide = 0;
 
