@@ -42,7 +42,6 @@ $total = 0;
             <ul class="nav-menu">
             <?php if (isset($_SESSION['user_email'])): ?>
                     <li><a href="account.php">Личный кабинет (<?php echo $_SESSION['user_email']; ?>)</a></li>
-                    <li><a href="logout.php">Выход</a></li>
                 <?php else: ?>
                     <li><a href="registration.php">Регистрация</a></li>
                 <?php endif; ?>
@@ -53,7 +52,6 @@ $total = 0;
             <div class="menu-dropdown" id="menuDropdown">
             <?php if (isset($_SESSION['user_email'])): ?>
                     <a href="account.php">Личный кабинет (<?php echo $_SESSION['user_email']; ?>)</a>
-                    <a href="logout.php">Выход</a>
                 <?php else: ?>
                     <a href="registration.php">Регистрация</a>
                 <?php endif; ?>
@@ -89,18 +87,16 @@ $total = 0;
                 <input type="hidden" name="id_cart" value="<?= $row['id_cart'] ?>">
                 <button type="submit" onclick="return confirm('Удалить этот товар из корзины?')">Удалить</button>
             </form>
-
-            <form action="order.php" method="post" class="order-form">
-                <input type="hidden" name="id_cart" value="<?= $row['id_cart'] ?>">
-                <button type="submit">Заказать</button>
-            </form>
         </div>
     </div>
 <?php endforeach; ?>
 
-
-        <div class="total">Общая сумма: <?= $total ?>₽</div>
-
+<div class="total-order-container">
+    <div class="total">Общая сумма: <?= $total ?>₽</div>
+    <form action="order.php" method="post" class="order-form">
+        <button type="submit">Заказать всё</button>
+    </form>
+</div>
     <?php else: ?>
         <p>Ваша корзина пуста.</p>
     <?php endif; ?>
