@@ -39,22 +39,16 @@ $gender = ($user['id_pol'] == 1) ? "Мужской" : "Женский";
         <nav>
             <ul class="nav-menu">
                 <li><a href="index.php">На главную</a></li>
-                <li><a href="#about">О нас</a></li>
                 <li><a href="products.php">Товары</a></li>
                 <li><a href="set_of_products.php">Корзина</a></li>
                 <li><a href="zakaz.php">Заказы</a></li>
-                <li><a href="#search">Поиск</a></li>
-                <li><a href="#contacts">Контакты</a></li>
                 <li><a href="logout.php">Выход</a></li>
             </ul>
             <div class="menu-dropdown" id="menuDropdown">
                 <a href="index.php">На главную</a>
-                <a href="#about">О нас</a>
                 <a href="products.php">Товары</a>
                 <a href="set_of_products.php">Корзина</a>
                 <a href="zakaz.php">Заказы</a>
-                <a href="#search">Поиск</a>
-                <a href="#contacts">Контакты</a>
                 <a href="logout.php">Выход</a>
             </div>
         </nav>
