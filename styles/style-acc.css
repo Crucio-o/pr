@@ -117,6 +117,7 @@ footer {
     margin-top: auto;
 }
 
+
 @media (max-width: 1500px) {
     .nav-menu {
         display: none;
