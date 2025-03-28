@@ -307,7 +307,7 @@ footer {
     color: white;
     text-align: center;
     padding: 10px;
-    margin-top: 20px;
+
 }
 
 @media (max-width: 768px) {
@@ -429,3 +429,5 @@ footer {
         background: #f0f0f0;
     }
 }
+
+
