@@ -110,11 +110,13 @@ nav ul li a:hover {
 }
 
 .product-card h3 {
+    min-height: 3em;
     margin: 15px 0 10px;
     font-size: 1.3em;
 }
 
 .product-card p {
+    min-height: 3.5em;
     font-size: 0.95em;
     margin: 10px 0;
 }
