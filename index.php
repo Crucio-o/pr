@@ -121,7 +121,7 @@ require 'db.php';
     <h2>Отзывы клиентов</h2>
     <div class="reviews-slider">
         <div class="review-slide">
-            <img src="">
+            <img src="img/icon.png">
             <div class="review-content">
                 <h3>Иван Иванов</h3>
                 <p class="review-text">Прекрасное качество белья! Буду заказывать ещё.</p>
@@ -130,7 +130,7 @@ require 'db.php';
             </div>
         </div>
         <div class="review-slide">
-            <img src="">
+        <img src="img/icon.png">
             <div class="review-content">
                 <h3>Сергей Смирнов</h3>
                 <p class="review-text">Доставили быстро, всё как на фото. Очень доволен покупкой.</p>
@@ -139,7 +139,7 @@ require 'db.php';
             </div>
         </div>
         <div class="review-slide">
-            <img src="">
+        <img src="img/icon.png">
             <div class="review-content">
                 <h3>Ирина Кузнецова</h3>
                 <p class="review-text">Цвета невероятные, ткань приятная. Спасибо за уют!</p>
@@ -148,7 +148,7 @@ require 'db.php';
             </div>
         </div>
         <div class="review-slide">
-            <img src="">
+        <img src="img/icon.png">
             <div class="review-content">
                 <h3>Максим </h3>
                 <p class="review-text">Цвета невероятные, ткань приятная. Спасибо за уют!</p>
@@ -160,7 +160,9 @@ require 'db.php';
 </section>
 
 <footer>
+    <div id="contacts">
         <p>Контактная информация</p>
+    </div>
 </footer>
 
     <script>
@@ -212,7 +214,6 @@ require 'db.php';
         }
     });
 });
-
     </script>
 </body>
 </html>
