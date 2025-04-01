@@ -65,10 +65,6 @@ nav ul li a {
     transition: background 0.3s;
 }
 
-nav ul li a:hover {
-    background: #e0e0e0;
-}
-
 .main-content {
     max-width: 1000px;
     margin: 0 auto;
