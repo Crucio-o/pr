@@ -7,6 +7,7 @@ body {
     display: flex;
     flex-direction: column;
     height: 100%;
+    min-height: 100vh;
 }
 
 header {
@@ -110,13 +111,18 @@ h2 {
 }
 
 footer {
-    background-color: #3f362f;
+    background: #3f362f;
     color: white;
+    padding: 15px 30px;
+    border-radius: 15px;
     text-align: center;
-    padding: 10px;
-    margin-top: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: auto 10px 10px 10px;
 }
 
+.main-content {
+    flex-grow: 1;
+}
 
 @media (max-width: 1500px) {
     .nav-menu {
