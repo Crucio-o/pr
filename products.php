@@ -56,21 +56,29 @@ $products = $stmt->fetchAll();
                     <li><a href="set_of_products.php">Корзина</a></li>
                     <li><a href="zakaz.php">Заказы</a></li>
                 <?php else: ?>
+                    <li><a href="index.php">На главную</a></li>
                     <li><a href="registration.php">Регистрация</a></li>
+                    <li><a href="#auth">Авторизация</a></li>
                 <?php endif; ?>
+                <li><a href="index.php#about">О нас</a></li>
                 <li><a href="products.php">Товары</a></li>
-                <li><a href="index.php">На главную</a></li>
+                <li><a href="index.php#search">Поиск</a></li>
+                <li><a href="index.php#contacts">Контакты</a></li>
             </ul>
             <div class="menu-dropdown" id="menuDropdown">
                 <?php if (isset($_SESSION['user_email'])): ?>
                     <a href="account.php">Личный кабинет (<?php echo $_SESSION['user_email']; ?>)</a>
-                    <a href="set_of_products.php">Корзина</a>
-                    <a href="zakaz.php">Заказы</a>
                 <?php else: ?>
+                    <a href="index.php">На главную</a>
                     <a href="registration.php">Регистрация</a>
+                    <a href="#auth">Авторизация</a>
                 <?php endif; ?>
+                <a href="index.php#about">О нас</a>
                 <a href="products.php">Товары</a>
-                <a href="index.php">На главную</a>
+                <a href="set_of_products.php">Корзина</a>
+                <a href="zakaz.php">Заказы</a>
+                <a href="index.php#search">Поиск</a>
+                <a href="index.php#contacts">Контакты</a>
             </div>
         </nav>
     </header>
