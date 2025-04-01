@@ -54,16 +54,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
 <header>
-    <div class="logo">
-        <img src="img/logo.png" alt="Logo">
-        Pillow & Blanket
-    </div>
-    <nav>
-        <ul class="nav-menu">
-            <li><a href="index.php">На главную</a></li>
-        </ul>
-    </nav>
-</header>
+        <div class="logo">
+            <img src="img/logo.png">
+            Pillow & Blanket
+        </div>
+        <button class="menu-button" onclick="toggleMenu()">☰ Меню</button>
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="index.php">На главную</a></li>
+                <li><a href="set_of_products.php">Корзина</a></li>
+                <li><a href="zakaz.php">Заказы</a></li>
+                <li><a href="index.php#about">О нас</a></li>
+                <li><a href="products.php">Товары</a></li>
+                <li><a href="index.php#search">Поиск</a></li>
+                <li><a href="index.php#contacts">Контакты</a></li>
+            </ul>
+            <div class="menu-dropdown" id="menuDropdown">
+                <a href="index.php">На главную</a>
+                <a href="index.php#about">О нас</a>
+                <a href="products.php">Товары</a>
+                <a href="set_of_products.php">Корзина</a>
+                <a href="zakaz.php">Заказы</a>
+                <a href="index.php#search">Поиск</a>
+                <a href="index.php#contacts">Контакты</a>
+            </div>
+        </nav>
+    </header>
+
 <div class="container">
     <h2>Регистрация</h2>
     <form id="registrationForm" method="POST">
