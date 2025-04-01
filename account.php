@@ -38,18 +38,24 @@ $gender = ($user['id_pol'] == 1) ? "Мужской" : "Женский";
         <button class="menu-button" onclick="toggleMenu()">☰ Меню</button>
         <nav>
             <ul class="nav-menu">
+                <li><a href="account.php">Личный кабинет (<?php echo $_SESSION['user_email']; ?>)</a></li>
                 <li><a href="index.php">На главную</a></li>
-                <li><a href="products.php">Товары</a></li>
                 <li><a href="set_of_products.php">Корзина</a></li>
                 <li><a href="zakaz.php">Заказы</a></li>
-                <li><a href="logout.php">Выход</a></li>
+                <li><a href="index.php#about">О нас</a></li>
+                <li><a href="products.php">Товары</a></li>
+                <li><a href="index.php#search">Поиск</a></li>
+                <li><a href="index.php#contacts">Контакты</a></li>
             </ul>
             <div class="menu-dropdown" id="menuDropdown">
+                <a href="account.php">Личный кабинет (<?php echo $_SESSION['user_email']; ?>)</a>
                 <a href="index.php">На главную</a>
+                <a href="index.php#about">О нас</a>
                 <a href="products.php">Товары</a>
                 <a href="set_of_products.php">Корзина</a>
                 <a href="zakaz.php">Заказы</a>
-                <a href="logout.php">Выход</a>
+                <a href="index.php#search">Поиск</a>
+                <a href="index.php#contacts">Контакты</a>
             </div>
         </nav>
     </header>
