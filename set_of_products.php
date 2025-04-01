@@ -26,7 +26,7 @@ $total = 0;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Личный кабинет</title>
+    <title>Корзина</title>
     <link rel="icon" href="img/logo.png">
     <link rel="stylesheet" href="styles/style-set.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Merriweather:wght@300;700&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
@@ -40,24 +40,22 @@ $total = 0;
         <button class="menu-button" onclick="toggleMenu()">☰ Меню</button>
         <nav>
             <ul class="nav-menu">
-            <?php if (isset($_SESSION['user_email'])): ?>
-                    <li><a href="account.php">Личный кабинет (<?php echo $_SESSION['user_email']; ?>)</a></li>
-                <?php else: ?>
-                    <li><a href="registration.php">Регистрация</a></li>
-                <?php endif; ?>
-                <li><a href="products.php">Товары</a></li>
+                <li><a href="account.php">Личный кабинет (<?php echo $_SESSION['user_email']; ?>)</a></li>
                 <li><a href="set_of_products.php">Корзина</a></li>
                 <li><a href="zakaz.php">Заказы</a></li>
+                <li><a href="index.php#about">О нас</a></li>
+                <li><a href="products.php">Товары</a></li>
+                <li><a href="index.php#search">Поиск</a></li>
+                <li><a href="index.php#contacts">Контакты</a></li>
             </ul>
             <div class="menu-dropdown" id="menuDropdown">
-            <?php if (isset($_SESSION['user_email'])): ?>
-                    <a href="account.php">Личный кабинет (<?php echo $_SESSION['user_email']; ?>)</a>
-                <?php else: ?>
-                    <a href="registration.php">Регистрация</a>
-                <?php endif; ?>
+                <a href="account.php">Личный кабинет (<?php echo $_SESSION['user_email']; ?>)</a>
+                <a href="index.php#about">О нас</a>
                 <a href="products.php">Товары</a>
                 <a href="set_of_products.php">Корзина</a>
                 <a href="zakaz.php">Заказы</a>
+                <a href="index.php#search">Поиск</a>
+                <a href="index.php#contacts">Контакты</a>
             </div>
         </nav>
     </header>
