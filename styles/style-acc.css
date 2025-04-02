@@ -53,6 +53,7 @@ header {
 }
 
 .menu-button {
+    margin-left: auto;
     display: none;
     background-color: #C8A27E;
     color: white;
