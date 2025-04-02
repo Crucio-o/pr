@@ -46,6 +46,7 @@ $gender = ($user['id_pol'] == 1) ? "Мужской" : "Женский";
                 <li><a href="products.php">Товары</a></li>
                 <li><a href="index.php#search">Поиск</a></li>
                 <li><a href="index.php#contacts">Контакты</a></li>
+                <li><a href="logout.php">Выход</a></li>
             </ul>
             <div class="menu-dropdown" id="menuDropdown">
                 <a href="account.php">Личный кабинет (<?php echo $_SESSION['user_email']; ?>)</a>
@@ -56,6 +57,7 @@ $gender = ($user['id_pol'] == 1) ? "Мужской" : "Женский";
                 <a href="zakaz.php">Заказы</a>
                 <a href="index.php#search">Поиск</a>
                 <a href="index.php#contacts">Контакты</a>
+                <a href="logout.php">Выход</a>
             </div>
         </nav>
     </header>
