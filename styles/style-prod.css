@@ -49,6 +49,7 @@ nav ul li a:hover {
 }
 
 .menu-button {
+    margin-left: auto;
     display: none;
     background-color: #C8A27E;
     color: white;
@@ -90,7 +91,7 @@ nav ul li a:hover {
 
 .products-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(460px, 1fr));
     gap: 20px;
 }
 
