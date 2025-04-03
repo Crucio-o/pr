@@ -117,6 +117,10 @@ require 'db.php';
             </div>
         </div>
     </section>
+    <form action="products.php" method="GET" class="search-form">
+    <input type="text" name="q" placeholder="Введите название товара..." required>
+    <button type="submit">Поиск</button>
+</form>
     <section id="reviews" class="reviews-section">
     <h2>Отзывы клиентов</h2>
     <div class="reviews-slider">
