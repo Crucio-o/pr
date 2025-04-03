@@ -48,6 +48,10 @@ nav ul li a:hover {
     background: #e0e0e0;
 }
 
+h2 {
+    text-align: center;
+}
+
 .menu-button {
     margin-left: auto;
     display: none;
@@ -129,7 +133,7 @@ nav ul li a:hover {
 }
 
 button {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Merriweather', serif;
     font-weight: 600;
     background-color: #C8A27E;
     color: #F3EDE4;
@@ -142,6 +146,30 @@ button {
 
 button:hover {
     background-color: #A0816C;
+}
+
+.search-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.search-form input {
+    margin-right: 10px;
+    width: 300px;
+    height: 18px;
+    padding: 10px 15px;
+    font-family: 'Merriweather', serif;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.search-form input:focus {
+    border-color: #007bff;
 }
 
 @media (max-width: 1500px) {
