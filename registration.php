@@ -117,5 +117,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <button type="submit">Зарегистрироваться</button>
     </form>
 </div>
+<script>
+    function toggleMenu() {
+        const menu = document.getElementById("menuDropdown");
+        if (menu.style.display === "block") {
+            menu.style.display = "none";
+        } else {
+            menu.style.display = "block";
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById("menuDropdown").style.display = "none";
+
+        document.addEventListener("click", function(event) {
+            const menu = document.getElementById("menuDropdown");
+            const button = document.querySelector(".menu-button");
+
+            if (!menu.contains(event.target) && !button.contains(event.target)) {
+                menu.style.display = "none";
+            }
+        });
+    });
+</script>
 </body>
 </html>
