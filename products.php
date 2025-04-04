@@ -104,6 +104,12 @@ $products = $stmt->fetchAll();
     </div>
 </section>
 
+<footer>
+    <div class="contacts">
+        <p>Контактная информация</p> 
+    </div>
+</footer>
+
 <script>
     function toggleMenu() {
         const menu = document.getElementById("menuDropdown");
