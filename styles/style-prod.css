@@ -172,6 +172,16 @@ button:hover {
     border-color: #007bff;
 }
 
+footer {
+    background: #3f362f;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: auto 10px 10px 10px;
+}
+
 @media (max-width: 1500px) {
     .nav-menu {
         display: none;
