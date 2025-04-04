@@ -46,7 +46,7 @@ $gender = ($user['id_pol'] == 1) ? "Мужской" : "Женский";
                 <li><a href="products.php">Товары</a></li>
                 <li><a href="index.php#search">Поиск</a></li>
                 <li><a href="index.php#contacts">Контакты</a></li>
-                <li><a href="logout.php">Выход</a></li>
+                <li><a href="#" onclick="confirmLogout()">Выход</a></li>
             </ul>
             <div class="menu-dropdown" id="menuDropdown">
                 <a href="account.php">Личный кабинет (<?php echo $_SESSION['user_email']; ?>)</a>
@@ -57,7 +57,7 @@ $gender = ($user['id_pol'] == 1) ? "Мужской" : "Женский";
                 <a href="zakaz.php">Заказы</a>
                 <a href="index.php#search">Поиск</a>
                 <a href="index.php#contacts">Контакты</a>
-                <a href="logout.php">Выход</a>
+                <a href="#" onclick="confirmLogout()">Выход</a>
             </div>
         </nav>
     </header>
@@ -74,7 +74,9 @@ $gender = ($user['id_pol'] == 1) ? "Мужской" : "Женский";
     </main>
 
     <footer>
-        <p>Pillow & Blanket</p>
+        <div class="contacts">
+            <p>Контактная информация</p> 
+        </div>
     </footer>
 
     <script>
@@ -99,6 +101,12 @@ $gender = ($user['id_pol'] == 1) ? "Мужской" : "Женский";
         }
     });
 });
+
+function confirmLogout() {
+    if (confirm("Вы действительно хотите выйти из аккаунта?")) {
+        window.location.href = "logout.php";
+    }
+}
     </script>
 </body>
 </html>
