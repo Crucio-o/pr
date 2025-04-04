@@ -99,6 +99,7 @@ $total = 0;
         <p>Ваша корзина пуста.</p>
     <?php endif; ?>
     </div>
+    
     <script>
         function toggleMenu() {
             const menu = document.getElementById("menuDropdown");
