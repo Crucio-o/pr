@@ -117,10 +117,11 @@ require 'db.php';
             </div>
         </div>
     </section>
+    <h2 id="search">Поиск товара</h2>
     <form action="products.php" method="GET" class="search-form">
-    <input type="text" name="q" placeholder="Введите название товара..." required>
-    <button type="submit">Поиск</button>
-</form>
+        <input type="text" name="q" placeholder="Введите название товара..." required>
+        <button type="submit">Поиск</button>
+    </form>
     <section id="reviews" class="reviews-section">
     <h2>Отзывы клиентов</h2>
     <div class="reviews-slider">
@@ -165,7 +166,7 @@ require 'db.php';
 
 <footer>
     <div id="contacts">
-        <p>Контактная информация</p>
+        <p>Контактная информация</p> 
     </div>
 </footer>
 
