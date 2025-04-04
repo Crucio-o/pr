@@ -303,6 +303,10 @@ button.next {
     text-decoration: underline;
 }
 
+#search{
+    text-align: center;
+}
+
 .search-form {
     display: flex;
     justify-content: center;
