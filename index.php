@@ -56,13 +56,15 @@ require 'db.php';
                 $stmt = $pdo->query("SELECT * FROM products LIMIT 5");
                 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                     echo '<div class="slide">
-                            <img src="'.$row['image_url'].'" alt="'.$row['name'].'">
-                            <div class="slide-content">
-                                <h3>'.$row['name'].'</h3>
-                                <p>'.$row['description'].'</p>
-                                <button>Подробнее</button>
-                            </div>
-                        </div>';
+                    <div class="slide-image">
+                        <img src="'.$row['image_url'].'" alt="'.$row['name'].'">
+                    </div>
+                    <div class="slide-content">
+                        <h3>'.$row['name'].'</h3>
+                        <p>'.$row['description'].'</p>
+                        <button>Подробнее</button>
+                    </div>
+                </div>';
                 }
             ?>
         </div>
