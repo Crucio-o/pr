@@ -51,26 +51,37 @@ require 'db.php';
         </nav>
     </header>
     <section id="popular-products" class="slider">
-        <div class="slider-container">
-            <?php
-                $stmt = $pdo->query("SELECT * FROM products LIMIT 5");
-                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                    echo '<div class="slide">
+    <div class="slider-container">
+        <?php
+            $stmt = $pdo->prepare("
+                SELECT p.*, SUM(op.quantity) AS total_ordered
+                FROM order_prod op
+                JOIN orders o ON op.id_order = o.id_order
+                JOIN products p ON op.id_product = p.id_product
+                WHERE o.created_at >= DATE_SUB(CURDATE(), INTERVAL 1 MONTH)
+                GROUP BY p.id_product
+                ORDER BY total_ordered DESC
+                LIMIT 5
+            ");
+            $stmt->execute();
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                echo '<div class="slide">
                     <div class="slide-image">
                         <img src="'.$row['image_url'].'" alt="'.$row['name'].'">
                     </div>
                     <div class="slide-content">
                         <h3>'.$row['name'].'</h3>
                         <p>'.$row['description'].'</p>
+                        <p>Куплено за месяц: <strong>'.$row['total_ordered'].'</strong></p>
                         <button>Подробнее</button>
                     </div>
                 </div>';
-                }
-            ?>
-        </div>
-        <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
-        <button class="next" onclick="moveSlide(1)">&#10095;</button>
-    </section>
+            }
+        ?>
+    </div>
+    <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+    <button class="next" onclick="moveSlide(1)">&#10095;</button>
+</section>
     <?php if (isset($_SESSION['user_email'])): ?>
     <?php else: ?>
     <section id="auth">
