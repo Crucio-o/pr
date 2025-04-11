@@ -30,16 +30,18 @@ $gender = ($user['id_pol'] == 1) ? "Мужской" : "Женский";
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Merriweather:wght@300;700&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
 </head>
 <body>
+<div class="wrapper">
 <header>
         <div class="logo">
-            <img src="img/logo.png">
-            Pillow & Blanket
+            <a href="index.php" style="text-decoration: none; color: inherit; display: flex; align-items: center;">
+                <img src="img/logo.png">
+                Pillow & Blanket
+            </a>
         </div>
         <button class="menu-button" onclick="toggleMenu()">☰ Меню</button>
         <nav>
             <ul class="nav-menu">
                 <li><a href="account.php">Личный кабинет (<?php echo $_SESSION['user_email']; ?>)</a></li>
-                <li><a href="index.php">На главную</a></li>
                 <li><a href="set_of_products.php">Корзина</a></li>
                 <li><a href="zakaz.php">Заказы</a></li>
                 <li><a href="index.php#about">О нас</a></li>
@@ -50,7 +52,6 @@ $gender = ($user['id_pol'] == 1) ? "Мужской" : "Женский";
             </ul>
             <div class="menu-dropdown" id="menuDropdown">
                 <a href="account.php">Личный кабинет (<?php echo $_SESSION['user_email']; ?>)</a>
-                <a href="index.php">На главную</a>
                 <a href="index.php#about">О нас</a>
                 <a href="products.php">Товары</a>
                 <a href="set_of_products.php">Корзина</a>
@@ -73,12 +74,29 @@ $gender = ($user['id_pol'] == 1) ? "Мужской" : "Женский";
         </div>
     </main>
 
-    <footer>
-        <div class="contacts">
-            <p>Контактная информация</p> 
+    <footer id="contacts">
+    <div class="footer-container">
+        <div class="footer-logo">
+            <img src="img/logo_negate.png" alt="Pillow & Blanket">
+            <span class="company-name">Pillow & Blanket</span>
         </div>
-    </footer>
-
+        <div class="footer-contacts">
+            <div class="contact-item">
+                <span class="label">Адрес</span>
+                <span class="value">Ярославль, ул. Бабича 10/22</span>
+            </div>
+            <div class="contact-item">
+                <span class="label">Email</span>
+                <a href="" class="value">pillowblanket@gmail.com</a>
+            </div>
+            <div class="contact-item">
+                <span class="label">Телефон</span>
+                <a href="" class="value">+7 (900) 123-45-67</a>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
     <script>
         function toggleMenu() {
             const menu = document.getElementById("menuDropdown");
