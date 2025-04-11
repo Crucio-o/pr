@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Мар 26 2025 г., 23:12
+-- Время создания: Апр 11 2025 г., 20:09
 -- Версия сервера: 8.0.30
 -- Версия PHP: 8.0.22
 
@@ -34,13 +34,6 @@ CREATE TABLE `cart` (
   `quantity` int NOT NULL DEFAULT '1',
   `act_price` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Дамп данных таблицы `cart`
---
-
-INSERT INTO `cart` (`id_cart`, `user_id`, `product_id`, `quantity`, `act_price`) VALUES
-(3, 1, 4, 1, 4500);
 
 -- --------------------------------------------------------
 
@@ -75,6 +68,18 @@ CREATE TABLE `orders` (
   `id_status` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+--
+-- Дамп данных таблицы `orders`
+--
+
+INSERT INTO `orders` (`id_order`, `id_user`, `created_at`, `id_status`) VALUES
+(1, 1, '2025-03-28 13:54:30', 1),
+(2, 1, '2025-03-28 14:43:21', 1),
+(3, 1, '2025-03-31 22:26:31', 1),
+(4, 1, '2025-04-01 11:33:01', 1),
+(5, 1, '2025-04-03 19:12:04', 1),
+(6, 1, '2025-04-10 20:27:31', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -88,6 +93,22 @@ CREATE TABLE `order_prod` (
   `quantity` int NOT NULL,
   `act_price` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Дамп данных таблицы `order_prod`
+--
+
+INSERT INTO `order_prod` (`id`, `id_order`, `id_product`, `quantity`, `act_price`) VALUES
+(1, 1, 5, 1, 1800),
+(2, 1, 4, 1, 4500),
+(3, 1, 3, 1, 2900),
+(4, 1, 2, 1, 3200),
+(5, 1, 1, 1, 2500),
+(6, 2, 3, 1, 2900),
+(7, 3, 2, 3, 3200),
+(8, 4, 5, 2, 1800),
+(9, 5, 6, 1, 5600),
+(10, 6, 2, 1, 3200);
 
 -- --------------------------------------------------------
 
@@ -130,11 +151,12 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id_product`, `name`, `description`, `price`, `category_id`, `kol_vo`, `id_size`, `image_url`) VALUES
-(1, 'Летний хлопковый комплект', 'Легкое постельное белье из 100% хлопка, идеально для летнего сезона.', 2500, 1, 10, 3, 'https://nauka-sna.ru/im.xp/049057055051052.jpg'),
-(2, 'Зимний фланелевый комплект', 'Теплое и уютное постельное белье из фланели, отлично сохраняет тепло.', 3200, 2, 8, 4, 'https://img.joomcdn.net/e1df056a79c03d90dec989b3dc771163647d3483_original.jpeg'),
-(3, 'Демисезонный сатиновый комплект', 'Мягкое и гладкое белье из сатина, подходит для любого времени года.', 2900, 3, 12, 2, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrySrqBM7pg4cu75GIrikic3u7CA3Ilr1BCQ&s'),
-(4, 'Семейный комплект с вышивкой', 'Роскошное постельное белье с декоративной вышивкой, комплект для всей семьи.', 4500, 3, 5, 5, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMULGOSUkjvqzz2IdpMzRiwVK868oCTB4hVw&s'),
-(5, 'Детский комплект с принтом', 'Яркое и мягкое детское белье с веселыми рисунками.', 1800, 1, 15, 1, 'https://linobambino.ru/upload/iblock/1a7/82lqs08365eaf3rir6djhdqizcn1oivv.jpg');
+(1, 'Летний хлопковый комплект', 'Легкое постельное белье из 100% хлопка, идеально для летнего сезона.', 2500, 1, 9, 3, 'https://nauka-sna.ru/im.xp/049057055051052.jpg'),
+(2, 'Зимний фланелевый комплект', 'Теплое и уютное постельное белье из фланели, отлично сохраняет тепло.', 3200, 2, 3, 4, 'https://img.joomcdn.net/e1df056a79c03d90dec989b3dc771163647d3483_original.jpeg'),
+(3, 'Демисезонный сатиновый комплект', 'Мягкое и гладкое белье из сатина, подходит для любого времени года.', 2900, 3, 10, 2, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrySrqBM7pg4cu75GIrikic3u7CA3Ilr1BCQ&s'),
+(4, 'Семейный комплект с вышивкой', 'Роскошное постельное белье с декоративной вышивкой, комплект для всей семьи.', 4500, 3, 4, 5, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMULGOSUkjvqzz2IdpMzRiwVK868oCTB4hVw&s'),
+(5, 'Детский комплект с принтом', 'Яркое и мягкое детское белье с веселыми рисунками.', 1800, 1, 12, 1, 'https://linobambino.ru/upload/iblock/1a7/82lqs08365eaf3rir6djhdqizcn1oivv.jpg'),
+(6, 'Демисезонный хлопковый комплект', 'Мягкий и приятный комплект белья для всей семьи', 5600, 3, 64, 5, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKdpdl_Nk0aueMj2Uig_NU8gBatffnJYgKZQ&s');
 
 -- --------------------------------------------------------
 
@@ -220,7 +242,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id_user`, `first_name`, `second_name`, `id_pol`, `data_rozd`, `email`, `password`, `id_role`, `created`) VALUES
-(1, 'Антон', 'Иванов', 1, '2025-03-06', 'anton@gmail.com', 'antiva', 1, '2025-03-18 13:27:20');
+(1, 'Антон', 'Иванов', 1, '2025-03-06', 'anton@gmail.com', 'antiva', 1, '2025-03-18 13:27:20'),
+(4, 'Игорь', 'Иванов', 1, '1997-06-14', 'igor@gmail.com', 'igoriva', 1, '2025-04-11 13:52:08');
 
 --
 -- Индексы сохранённых таблиц
@@ -306,7 +329,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id_cart` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_cart` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT для таблицы `categories`
@@ -318,25 +341,25 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT для таблицы `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id_order` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id_order` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT для таблицы `order_prod`
 --
 ALTER TABLE `order_prod`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT для таблицы `products`
 --
 ALTER TABLE `products`
-  MODIFY `id_product` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_product` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_user` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
