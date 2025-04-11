@@ -55,26 +55,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
 <header>
         <div class="logo">
-            <img src="img/logo.png">
-            Pillow & Blanket
+            <a href="index.php" style="text-decoration: none; color: inherit; display: flex; align-items: center;">
+                <img src="img/logo.png">
+                Pillow & Blanket
+            </a>
         </div>
         <button class="menu-button" onclick="toggleMenu()">☰ Меню</button>
         <nav>
             <ul class="nav-menu">
-                <li><a href="index.php">На главную</a></li>
-                <li><a href="set_of_products.php">Корзина</a></li>
-                <li><a href="zakaz.php">Заказы</a></li>
                 <li><a href="index.php#about">О нас</a></li>
                 <li><a href="products.php">Товары</a></li>
                 <li><a href="index.php#search">Поиск</a></li>
                 <li><a href="index.php#contacts">Контакты</a></li>
             </ul>
             <div class="menu-dropdown" id="menuDropdown">
-                <a href="index.php">На главную</a>
                 <a href="index.php#about">О нас</a>
                 <a href="products.php">Товары</a>
-                <a href="set_of_products.php">Корзина</a>
-                <a href="zakaz.php">Заказы</a>
                 <a href="index.php#search">Поиск</a>
                 <a href="index.php#contacts">Контакты</a>
             </div>
@@ -82,7 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </header>
 
 <div class="container">
-    <h2>Регистрация</h2>
+    <h1>Регистрация</h1>
     <form id="registrationForm" method="POST">
         <input type="email" id="email" name="email" placeholder="E-mail" required>
         <span class="error" id="emailError"></span>
@@ -114,7 +110,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </label>
         <span class="error" id="termsError"></span>
 
-        <button type="submit">Зарегистрироваться</button>
+        <button type="submit" id="registration-button">Зарегистрироваться</button>
     </form>
 </div>
 <script>
