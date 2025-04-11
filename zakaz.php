@@ -57,11 +57,14 @@ foreach ($rows as $row) {
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Merriweather:wght@300;700&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
 </head>
 <body>
-
+<div class="wrapper">
 <header>
+
         <div class="logo">
-            <img src="img/logo.png">
-            Pillow & Blanket
+            <a href="index.php" style="text-decoration: none; color: inherit; display: flex; align-items: center;">
+                <img src="img/logo.png">
+                Pillow & Blanket
+            </a>
         </div>
         <button class="menu-button" onclick="toggleMenu()">☰ Меню</button>
         <nav>
@@ -115,9 +118,29 @@ foreach ($rows as $row) {
     <?php endif; ?>
 </main>
 
-<footer>
-        <p>Контактная информация</p>
+<footer id="contacts">
+    <div class="footer-container">
+        <div class="footer-logo">
+            <img src="img/logo_negate.png" alt="Pillow & Blanket">
+            <span class="company-name">Pillow & Blanket</span>
+        </div>
+        <div class="footer-contacts">
+            <div class="contact-item">
+                <span class="label">Адрес</span>
+                <span class="value">Ярославль, ул. Бабича 10/22</span>
+            </div>
+            <div class="contact-item">
+                <span class="label">Email</span>
+                <a href="" class="value">pillowblanket@gmail.com</a>
+            </div>
+            <div class="contact-item">
+                <span class="label">Телефон</span>
+                <a href="" class="value">+7 (900) 123-45-67</a>
+            </div>
+        </div>
+    </div>
 </footer>
+</div>
 <script>
     function toggleMenu() {
             const menu = document.getElementById("menuDropdown");
