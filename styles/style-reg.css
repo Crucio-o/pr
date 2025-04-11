@@ -6,12 +6,12 @@ body {
     background-color: #F3EDE4;
 }
 
-h1, h2, h3 {
+h1 {
     font-family: 'Playfair Display', serif;
     color: #7A6755;
 }
 
-button {
+#registration-button {
     width: 100%;
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
@@ -24,7 +24,7 @@ button {
     transition: 0.3s;
 }
 
-button:hover {
+#registration-button:hover {
     background-color: #A0816C;
 }
 
