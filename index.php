@@ -50,40 +50,41 @@ require 'db.php';
             </div>
         </nav>
     </header>
+    <h2 id="slide-title">Популярные товары</h2>
     <section id="popular-products" class="slider">
-    <div class="slider-container">
-        <?php
-            $stmt = $pdo->prepare("
-                SELECT p.*, SUM(op.quantity) AS total_ordered
-                FROM order_prod op
-                JOIN orders o ON op.id_order = o.id_order
-                JOIN products p ON op.id_product = p.id_product
-                WHERE o.created_at >= DATE_SUB(CURDATE(), INTERVAL 1 MONTH)
-                GROUP BY p.id_product
-                ORDER BY total_ordered DESC
-                LIMIT 5
-            ");
-            $stmt->execute();
-            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                echo '<div class="slide">
-                    <div class="slide-image">
-                        <img src="'.$row['image_url'].'" alt="'.$row['name'].'">
-                    </div>
-                    <div class="slide-content">
-                        <h3>'.$row['name'].'</h3>
-                        <p>'.$row['description'].'</p>
-                        <p>Куплено за месяц: <strong>'.$row['total_ordered'].'</strong></p>
-                        <button>Подробнее</button>
-                    </div>
-                </div>';
-            }
-        ?>
-    </div>
-    <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
-    <button class="next" onclick="moveSlide(1)">&#10095;</button>
-</section>
-    <?php if (isset($_SESSION['user_email'])): ?>
-    <?php else: ?>
+        <div class="slider-container">
+            <?php
+                $stmt = $pdo->prepare("
+                    SELECT p.*, SUM(op.quantity) AS total_ordered
+                    FROM order_prod op
+                    JOIN orders o ON op.id_order = o.id_order
+                    JOIN products p ON op.id_product = p.id_product
+                    WHERE o.created_at >= DATE_SUB(CURDATE(), INTERVAL 1 MONTH)
+                    GROUP BY p.id_product
+                    ORDER BY total_ordered DESC
+                    LIMIT 5
+                ");
+                $stmt->execute();
+                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                    echo '<div class="slide">
+                        <div class="slide-image">
+                            <img src="'.$row['image_url'].'" alt="'.$row['name'].'">
+                        </div>
+                        <div class="slide-content">
+                            <h3>'.$row['name'].'</h3>
+                            <p>'.$row['description'].'</p>
+                            <p>Куплено за месяц: <strong>'.$row['total_ordered'].'</strong></p>
+                            <button>Подробнее</button>
+                        </div>
+                    </div>';
+                }
+            ?>
+        </div>
+        <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="next" onclick="moveSlide(1)">&#10095;</button>
+    </section>
+        <?php if (isset($_SESSION['user_email'])): ?>
+        <?php else: ?>
     <section id="auth">
         <div class="auth-container">
             <h2>Авторизация</h2>
@@ -176,12 +177,31 @@ require 'db.php';
         </div>
     </div>
 </section>
-
-<footer>
-    <div id="contacts">
-        <p>Контактная информация</p> 
+ 
+<footer id="contacts">
+    <div class="footer-container">
+        <div class="footer-logo">
+            <img src="img/logo_negate.png" alt="Pillow & Blanket">
+            <span class="company-name">Pillow & Blanket</span>
+        </div>
+        <div class="footer-contacts">
+            <div class="contact-item">
+                <span class="label">Адрес</span>
+                <span class="value">Ярославль, ул. Бабича 10/22</span>
+            </div>
+            <div class="contact-item">
+                <span class="label">Email</span>
+                <a href="" class="value">pillowblanket@gmail.com</a>
+            </div>
+            <div class="contact-item">
+                <span class="label">Телефон</span>
+                <a href="" class="value">+7 (900) 123-45-67</a>
+            </div>
+        </div>
     </div>
 </footer>
+
+
 
     <script>
         let currentSlide = 0;
