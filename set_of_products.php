@@ -32,10 +32,13 @@ $total = 0;
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Merriweather:wght@300;700&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
 </head>
 <body>
+<div class="wrapper">
 <header>
         <div class="logo">
-            <img src="img/logo.png">
-            Pillow & Blanket
+            <a href="index.php" style="text-decoration: none; color: inherit; display: flex; align-items: center;">
+                <img src="img/logo.png">
+                Pillow & Blanket
+            </a>
         </div>
         <button class="menu-button" onclick="toggleMenu()">☰ Меню</button>
         <nav>
@@ -65,41 +68,67 @@ $total = 0;
         <?php foreach ($cartItems as $row): 
     $item_total = $row['act_price'] * $row['quantity'];
     $total += $item_total;
-?>
+    ?>
     <div class="cart-item">
-        <img src="<?= htmlspecialchars($row['image_url']) ?>" alt="<?= htmlspecialchars($row['name']) ?>">
-        <div class="item-info">
-            <h3><?= htmlspecialchars($row['name']) ?></h3>
-            <p>Цена за шт: <?= $row['act_price'] ?>₽</p>
+    <img src="<?= htmlspecialchars($row['image_url']) ?>" alt="<?= htmlspecialchars($row['name']) ?>">
 
-            <form action="update.php" method="post" class="quantity-form">
-                <input type="hidden" name="id_cart" value="<?= $row['id_cart'] ?>">
-                <button type="submit" name="action" value="decrease">−</button>
-                <span><?= $row['quantity'] ?></span>
-                <button type="submit" name="action" value="increase">+</button>
-            </form>
-
-            <p>Сумма: <?= $item_total ?>₽</p>
-
-            <form action="delete.php" method="post" class="delete-form">
-                <input type="hidden" name="id_cart" value="<?= $row['id_cart'] ?>">
-                <button type="submit" onclick="return confirm('Удалить этот товар из корзины?')">Удалить</button>
-            </form>
-        </div>
+    <div class="item-info">
+        <h3><?= htmlspecialchars($row['name']) ?></h3>
+        <p>Цена за шт: <?= $row['act_price'] ?>₽</p>
+        <p>Сумма: <?= $item_total ?>₽</p>
     </div>
+
+    <div class="item-actions">
+        <form action="update.php" method="post" class="quantity-form">
+            <input type="hidden" name="id_cart" value="<?= $row['id_cart'] ?>">
+            <button type="submit" name="action" value="decrease">−</button>
+            <span><?= $row['quantity'] ?></span>
+            <button type="submit" name="action" value="increase">+</button>
+        </form>
+
+        <form action="delete.php" method="post" class="delete-form">
+            <input type="hidden" name="id_cart" value="<?= $row['id_cart'] ?>">
+            <button type="submit" onclick="return confirm('Удалить этот товар из корзины?')">Удалить</button>
+        </form>
+    </div>
+</div>
+
 <?php endforeach; ?>
 
 <div class="total-order-container">
     <div class="total">Общая сумма: <?= $total ?>₽</div>
     <form action="order.php" method="post" class="order-form">
-        <button type="submit">Заказать всё</button>
+        <button type="submit" onclick="return confirm('Совершить заказ?')">Заказать всё</button>
     </form>
 </div>
     <?php else: ?>
-        <p>Ваша корзина пуста.</p>
+        <p id="my-set">Ваша корзина пуста.</p>
     <?php endif; ?>
     </div>
     
+    <footer id="contacts">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="img/logo_negate.png" alt="Pillow & Blanket">
+                <span class="company-name">Pillow & Blanket</span>
+            </div>
+            <div class="footer-contacts">
+                <div class="contact-item">
+                    <span class="label">Адрес</span>
+                    <span class="value">Ярославль, ул. Бабича 10/22</span>
+                </div>
+                <div class="contact-item">
+                    <span class="label">Email</span>
+                    <a href="" class="value">pillowblanket@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <span class="label">Телефон</span>
+                    <a href="" class="value">+7 (900) 123-45-67</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
     <script>
         function toggleMenu() {
             const menu = document.getElementById("menuDropdown");
