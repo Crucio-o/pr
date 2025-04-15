@@ -1,3 +1,4 @@
+/* Общие стили */
 html, body {
     height: 100%;
     margin: 0;
@@ -24,7 +25,7 @@ h1, h2 {
     font-family: 'Playfair Display', serif;
     color: #7A6755;
 }
-
+/* Шапка страницы */
 header {
     background-color: #f8f8f8;
     margin: 10px;
@@ -66,7 +67,7 @@ nav ul li a {
 nav ul li a:hover {
     background: #e0e0e0;
 }
-
+/* Выпадающий список(навигация) */
 .menu-button {
     margin-left: auto;
     display: none;
@@ -103,7 +104,7 @@ nav ul li a:hover {
 .menu-dropdown a:hover {
     background-color: #f0f0f0;
 }
-
+/* Секция с товарами */
 .products-section {
     margin: 40px 10px;
 }
@@ -171,7 +172,7 @@ button:hover {
 #nothing{
     text-align: center;
 }
-
+/* Поле поиска товаров */
 .search-form {
     display: flex;
     justify-content: center;
@@ -195,7 +196,7 @@ button:hover {
 .search-form input:focus {
     border-color: #007bff;
 }
-
+/* Подвал страницы */
 footer {
     background: #3f362f;
     color: white;
@@ -262,7 +263,7 @@ footer {
 .value:hover {
     color: #a07451;
 }
-
+/* Адаптивность */
 @media (max-width: 700px) {
     .footer-container {
         flex-direction: column;
