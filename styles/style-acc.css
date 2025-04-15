@@ -1,3 +1,4 @@
+/* Общие стили */
 html, body {
     height: 100%;
     margin: 0;
@@ -16,10 +17,16 @@ body {
     min-height: 100vh;
 }
 
+h2 {
+    font-family: 'Playfair Display', serif;
+    color: #7A6755;
+    text-align: center;
+}
+
 main {
     flex: 1;
 }
-
+/* Шапка страницы */
 header {
     background-color: #f8f8f8;
     margin: 10px;
@@ -61,7 +68,7 @@ header {
 .nav-menu li a:hover {
     background-color: #e0e0e0;
 }
-
+/* Выпадающий список(навигация) */
 .menu-button {
     margin-left: auto;
     display: none;
@@ -98,13 +105,7 @@ header {
 .menu-dropdown a:hover {
     background-color: #f0f0f0;
 }
-
-h2 {
-    font-family: 'Playfair Display', serif;
-    color: #7A6755;
-    text-align: center;
-}
-
+/* Блок с информацией о пользователе */
 .account-container {
     max-width: 500px;
     margin: 50px auto;
@@ -121,7 +122,7 @@ h2 {
     border: 1px solid #ccc;
     border-radius: 5px;
 }
-
+/* Подвал страницы */
 footer {
     background: #3f362f;
     color: white;
@@ -191,7 +192,7 @@ footer {
 .main-content {
     flex-grow: 1;
 }
-
+/* Адаптивность */
 @media (max-width: 1500px) {
     .nav-menu {
         display: none;
