@@ -13,7 +13,7 @@ require 'db.php';
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Merriweather:wght@300;700&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
 </head>
 <body>
-<header>
+    <header>
         <div class="logo">
             <img src="img/logo.png">
             Pillow & Blanket
@@ -83,8 +83,8 @@ require 'db.php';
         <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
         <button class="next" onclick="moveSlide(1)">&#10095;</button>
     </section>
-        <?php if (isset($_SESSION['user_email'])): ?>
-        <?php else: ?>
+    <?php if (isset($_SESSION['user_email'])): ?>
+    <?php else: ?>
     <section id="auth">
         <div class="auth-container">
             <h2>Авторизация</h2>
@@ -120,7 +120,6 @@ require 'db.php';
                 <img src="img/first.jpg" alt="Комфорт и качество">
             </div>
         </div>
-
         <div class="info-block right-text">
             <div class="image">
                 <img src="img/second.jpg" alt="Дизайн и уют">
@@ -137,72 +136,68 @@ require 'db.php';
         <button type="submit">Поиск</button>
     </form>
     <section id="reviews" class="reviews-section">
-    <h2>Отзывы клиентов</h2>
-    <div class="reviews-slider">
-        <div class="review-slide">
+        <h2>Отзывы клиентов</h2>
+        <div class="reviews-slider">
+            <div class="review-slide">
+                <img src="img/icon.png">
+                <div class="review-content">
+                    <h3>Иван Иванов</h3>
+                    <p class="review-text">Прекрасное качество белья! Буду заказывать ещё.</p>
+                    <p class="review-date">15 марта 2025</p>
+                    <a href="" class="review-link">Посмотреть товар</a>
+                </div>
+            </div>
+            <div class="review-slide">
             <img src="img/icon.png">
-            <div class="review-content">
-                <h3>Иван Иванов</h3>
-                <p class="review-text">Прекрасное качество белья! Буду заказывать ещё.</p>
-                <p class="review-date">15 марта 2025</p>
-                <a href="" class="review-link">Посмотреть товар</a>
+                <div class="review-content">
+                    <h3>Сергей Смирнов</h3>
+                    <p class="review-text">Доставили быстро, всё как на фото. Очень доволен покупкой.</p>
+                    <p class="review-date">27 января 2025</p>
+                    <a href="" class="review-link">Посмотреть товар</a>
+                </div>
+            </div>
+            <div class="review-slide">
+            <img src="img/icon.png">
+                <div class="review-content">
+                    <h3>Ирина Кузнецова</h3>
+                    <p class="review-text">Цвета невероятные, ткань приятная. Спасибо за уют!</p>
+                    <p class="review-date">1 февраля 2025</p>
+                    <a href="" class="review-link">Посмотреть товар</a>
+                </div>
+            </div>
+            <div class="review-slide">
+            <img src="img/icon.png">
+                <div class="review-content">
+                    <h3>Максим </h3>
+                    <p class="review-text">Цвета невероятные, ткань приятная. Спасибо за уют!</p>
+                    <p class="review-date">10 февраля 2025</p>
+                    <a href="" class="review-link">Посмотреть товар</a>
+                </div>
             </div>
         </div>
-        <div class="review-slide">
-        <img src="img/icon.png">
-            <div class="review-content">
-                <h3>Сергей Смирнов</h3>
-                <p class="review-text">Доставили быстро, всё как на фото. Очень доволен покупкой.</p>
-                <p class="review-date">27 января 2025</p>
-                <a href="" class="review-link">Посмотреть товар</a>
+    </section>
+    <footer id="contacts">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="img/logo_negate.png" alt="Pillow & Blanket">
+                <span class="company-name">Pillow & Blanket</span>
+            </div>
+            <div class="footer-contacts">
+                <div class="contact-item">
+                    <span class="label">Адрес</span>
+                    <span class="value">Ярославль, ул. Бабича 10/22</span>
+                </div>
+                <div class="contact-item">
+                    <span class="label">Email</span>
+                    <a class="value">pillowblanket@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <span class="label">Телефон</span>
+                    <a class="value">+7 (900) 123-45-67</a>
+                </div>
             </div>
         </div>
-        <div class="review-slide">
-        <img src="img/icon.png">
-            <div class="review-content">
-                <h3>Ирина Кузнецова</h3>
-                <p class="review-text">Цвета невероятные, ткань приятная. Спасибо за уют!</p>
-                <p class="review-date">1 февраля 2025</p>
-                <a href="" class="review-link">Посмотреть товар</a>
-            </div>
-        </div>
-        <div class="review-slide">
-        <img src="img/icon.png">
-            <div class="review-content">
-                <h3>Максим </h3>
-                <p class="review-text">Цвета невероятные, ткань приятная. Спасибо за уют!</p>
-                <p class="review-date">10 февраля 2025</p>
-                <a href="" class="review-link">Посмотреть товар</a>
-            </div>
-        </div>
-    </div>
-</section>
- 
-<footer id="contacts">
-    <div class="footer-container">
-        <div class="footer-logo">
-            <img src="img/logo_negate.png" alt="Pillow & Blanket">
-            <span class="company-name">Pillow & Blanket</span>
-        </div>
-        <div class="footer-contacts">
-            <div class="contact-item">
-                <span class="label">Адрес</span>
-                <span class="value">Ярославль, ул. Бабича 10/22</span>
-            </div>
-            <div class="contact-item">
-                <span class="label">Email</span>
-                <a href="" class="value">pillowblanket@gmail.com</a>
-            </div>
-            <div class="contact-item">
-                <span class="label">Телефон</span>
-                <a href="" class="value">+7 (900) 123-45-67</a>
-            </div>
-        </div>
-    </div>
-</footer>
-
-
-
+    </footer>
     <script>
         let currentSlide = 0;
 
@@ -247,11 +242,11 @@ require 'db.php';
         const menu = document.getElementById("menuDropdown");
         const button = document.querySelector(".menu-button");
 
-        if (!menu.contains(event.target) && !button.contains(event.target)) {
-            menu.style.display = "none";
-        }
+            if (!menu.contains(event.target) && !button.contains(event.target)) {
+                menu.style.display = "none";
+            }
+        });
     });
-});
     </script>
 </body>
 </html>
