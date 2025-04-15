@@ -53,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Merriweather:wght@300;700&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
 </head>
 <body>
-<header>
+    <header>
         <div class="logo">
             <a href="index.php" style="text-decoration: none; color: inherit; display: flex; align-items: center;">
                 <img src="img/logo.png">
@@ -76,65 +76,64 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         </nav>
     </header>
+    <div class="container">
+        <h1>Регистрация</h1>
+        <form id="registrationForm" method="POST">
+            <input type="email" id="email" name="email" placeholder="E-mail" required>
+            <span class="error" id="emailError"></span>
 
-<div class="container">
-    <h1>Регистрация</h1>
-    <form id="registrationForm" method="POST">
-        <input type="email" id="email" name="email" placeholder="E-mail" required>
-        <span class="error" id="emailError"></span>
+            <input type="text" id="firstName" name="firstName" placeholder="Имя" required>
+            <span class="error" id="firstNameError"></span>
 
-        <input type="text" id="firstName" name="firstName" placeholder="Имя" required>
-        <span class="error" id="firstNameError"></span>
+            <input type="text" id="lastName" name="lastName" placeholder="Фамилия" required>
+            <span class="error" id="lastNameError"></span>
 
-        <input type="text" id="lastName" name="lastName" placeholder="Фамилия" required>
-        <span class="error" id="lastNameError"></span>
+            <input type="date" id="birthDate" name="birthDate" required>
+            <span class="error" id="birthDateError"></span>
 
-        <input type="date" id="birthDate" name="birthDate" required>
-        <span class="error" id="birthDateError"></span>
+            <select id="gender" name="gender" required>
+                <option value="">Выберите пол</option>
+                <option value="male">Мужской</option>
+                <option value="female">Женский</option>
+            </select>
+            <span class="error" id="genderError"></span>
 
-        <select id="gender" name="gender" required>
-            <option value="">Выберите пол</option>
-            <option value="male">Мужской</option>
-            <option value="female">Женский</option>
-        </select>
-        <span class="error" id="genderError"></span>
+            <input type="password" id="password" name="password" placeholder="Пароль" required>
+            <span class="error" id="passwordError"></span>
 
-        <input type="password" id="password" name="password" placeholder="Пароль" required>
-        <span class="error" id="passwordError"></span>
+            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Повтор пароля" required>
+            <span class="error" id="confirmPasswordError"></span>
 
-        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Повтор пароля" required>
-        <span class="error" id="confirmPasswordError"></span>
+            <label>
+                <input type="checkbox" id="terms" name="terms" required> Я согласен на обработку персональных данных
+            </label>
+            <span class="error" id="termsError"></span>
 
-        <label>
-            <input type="checkbox" id="terms" name="terms" required> Я согласен на обработку персональных данных
-        </label>
-        <span class="error" id="termsError"></span>
-
-        <button type="submit" id="registration-button">Зарегистрироваться</button>
-    </form>
-</div>
-<script>
-    function toggleMenu() {
-        const menu = document.getElementById("menuDropdown");
-        if (menu.style.display === "block") {
-            menu.style.display = "none";
-        } else {
-            menu.style.display = "block";
-        }
-    }
-
-    document.addEventListener("DOMContentLoaded", function () {
-        document.getElementById("menuDropdown").style.display = "none";
-
-        document.addEventListener("click", function(event) {
+            <button type="submit" id="registration-button">Зарегистрироваться</button>
+        </form>
+    </div>
+    <script>
+        function toggleMenu() {
             const menu = document.getElementById("menuDropdown");
-            const button = document.querySelector(".menu-button");
-
-            if (!menu.contains(event.target) && !button.contains(event.target)) {
+            if (menu.style.display === "block") {
                 menu.style.display = "none";
+            } else {
+                menu.style.display = "block";
             }
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("menuDropdown").style.display = "none";
+
+            document.addEventListener("click", function(event) {
+                const menu = document.getElementById("menuDropdown");
+                const button = document.querySelector(".menu-button");
+
+                if (!menu.contains(event.target) && !button.contains(event.target)) {
+                    menu.style.display = "none";
+                }
+            });
         });
-    });
-</script>
+    </script>
 </body>
 </html>
