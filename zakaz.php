@@ -45,7 +45,6 @@ foreach ($rows as $row) {
     ];
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -57,9 +56,8 @@ foreach ($rows as $row) {
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Merriweather:wght@300;700&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
 </head>
 <body>
-<div class="wrapper">
-<header>
-
+    <div class="wrapper">
+    <header>
         <div class="logo">
             <a href="index.php" style="text-decoration: none; color: inherit; display: flex; align-items: center;">
                 <img src="img/logo.png">
@@ -88,17 +86,14 @@ foreach ($rows as $row) {
             </div>
         </nav>
     </header>
-
-<main>
-    <h1>Мои заказы</h1>
-
-    <?php if (isset($_GET['success'])): ?>
-        <div class="success">Ваш заказ был успешно оформлен!</div>
-    <?php endif; ?>
-
-    <?php if (empty($orders)): ?>
-        <p style="text-align:center;">У вас ещё нет заказов.</p>
-    <?php else: ?>
+    <main>
+        <h1>Мои заказы</h1>
+        <?php if (isset($_GET['success'])): ?>
+            <div class="success">Ваш заказ был успешно оформлен!</div>
+        <?php endif; ?>
+        <?php if (empty($orders)): ?>
+            <p style="text-align:center;">У вас ещё нет заказов.</p>
+        <?php else: ?>
         <?php foreach ($orders as $id_order => $order): ?>
             <div class="order">
                 <h2>Заказ №<?= $id_order ?> — <?= date("d.m.Y H:i", strtotime($order['created_at'])) ?></h2>
@@ -115,32 +110,31 @@ foreach ($rows as $row) {
                 </div>
             </div>
         <?php endforeach; ?>
-    <?php endif; ?>
-</main>
-
-<footer id="contacts">
-    <div class="footer-container">
-        <div class="footer-logo">
-            <img src="img/logo_negate.png" alt="Pillow & Blanket">
-            <span class="company-name">Pillow & Blanket</span>
+        <?php endif; ?>
+    </main>
+    <footer id="contacts">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="img/logo_negate.png" alt="Pillow & Blanket">
+                <span class="company-name">Pillow & Blanket</span>
+            </div>
+            <div class="footer-contacts">
+                <div class="contact-item">
+                    <span class="label">Адрес</span>
+                    <span class="value">Ярославль, ул. Бабича 10/22</span>
+                </div>
+                <div class="contact-item">
+                    <span class="label">Email</span>
+                    <a href="" class="value">pillowblanket@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <span class="label">Телефон</span>
+                    <a href="" class="value">+7 (900) 123-45-67</a>
+                </div>
+            </div>
         </div>
-        <div class="footer-contacts">
-            <div class="contact-item">
-                <span class="label">Адрес</span>
-                <span class="value">Ярославль, ул. Бабича 10/22</span>
-            </div>
-            <div class="contact-item">
-                <span class="label">Email</span>
-                <a href="" class="value">pillowblanket@gmail.com</a>
-            </div>
-            <div class="contact-item">
-                <span class="label">Телефон</span>
-                <a href="" class="value">+7 (900) 123-45-67</a>
-            </div>
-        </div>
+    </footer>
     </div>
-</footer>
-</div>
 <script>
     function toggleMenu() {
             const menu = document.getElementById("menuDropdown");
@@ -158,11 +152,11 @@ foreach ($rows as $row) {
         const menu = document.getElementById("menuDropdown");
         const button = document.querySelector(".menu-button");
 
-        if (!menu.contains(event.target) && !button.contains(event.target)) {
-            menu.style.display = "none";
-        }
+            if (!menu.contains(event.target) && !button.contains(event.target)) {
+                menu.style.display = "none";
+            }
+        });
     });
-});
 </script>
 </body>
 </html>
