@@ -1,3 +1,4 @@
+/* Общие стили */
 body {
     font-family: 'Merriweather', serif;
     color: #5A4D44;
@@ -27,6 +28,11 @@ button:hover {
     background-color: #A0816C;
 }
 
+.menu-button {
+    display: none;
+    margin-left: auto;
+}
+/* Шапка страницы */
 header {
     background-color: #f8f8f8;
     margin: 10px;
@@ -68,7 +74,7 @@ nav ul li a {
 nav ul li a:hover {
     background: #e0e0e0;
 }
-
+/* Слайдер с популярными продуктами за месяц */
 #popular-products {
     background-color: white;
     margin: 40px auto;
@@ -89,9 +95,8 @@ nav ul li a:hover {
     display: flex;
     transition: transform 0.5s ease; 
     will-change: transform;
-  }
+}
   
-
 .slide {
     min-width: 100%;
     max-width: 100%;
@@ -131,7 +136,6 @@ button.prev, button.next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
     color: white;
     border: none;
     font-size: 20px;
@@ -150,6 +154,10 @@ button.next {
     right: 10px;
 }
 
+button.prev:hover, button.next:hover{
+    background-color: #b49271;
+}
+/* Форма с аутентификацией */
 #auth {
     display: flex;
     justify-content: center;
@@ -208,7 +216,7 @@ button.next {
     line-height: 1.6;
     margin-bottom: 15px;
 }
-
+/* Блок с информацией о компании */
 .info-sections {
     margin: 10px 10px;
 }
@@ -257,7 +265,7 @@ button.next {
 .right-text .image {
     order: 1;
 }
-
+/* Блок с отзывами покупателей */
 .reviews-section {
     margin: 40px auto;
     padding: 30px;
@@ -330,7 +338,7 @@ button.next {
 .review-link:hover {
     text-decoration: underline;
 }
-
+/* Блок с поиском товаров по названию */
 #search{
     text-align: center;
 }
@@ -358,7 +366,7 @@ button.next {
 .search-form input:focus {
     border-color: #007bff;
 }
-
+/* Подвал страницы */
 footer {
     background: #3f362f;
     color: white;
@@ -425,7 +433,7 @@ footer {
 .value:hover {
     color: #a07451;
 }
-
+/* Адаптивность */
 @media (max-width: 700px) {
     .footer-container {
         flex-direction: column;
@@ -533,11 +541,6 @@ footer {
         font-size: 12px;
         padding: 4px 6px;
     }
-}
-
-.menu-button {
-    display: none;
-    margin-left: auto;
 }
 
 @media (max-width: 1500px) {
