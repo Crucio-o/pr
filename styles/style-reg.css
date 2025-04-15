@@ -1,3 +1,4 @@
+/* Общие стили */
 body {
     font-family: 'Merriweather', serif;
     color: #5A4D44;
@@ -10,24 +11,7 @@ h1 {
     font-family: 'Playfair Display', serif;
     color: #7A6755;
 }
-
-#registration-button {
-    width: 100%;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    background-color: #C8A27E;
-    color: #F3EDE4;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-#registration-button:hover {
-    background-color: #A0816C;
-}
-
+/* Шапка страницы */
 header {
     background-color: #f8f8f8;
     margin: 10px;
@@ -69,7 +53,7 @@ nav ul li a:hover {
     height: 50px;
     margin-right: 10px;
 }
-
+/* Форма регистрации */
 .container {
     width: 100%;
     max-width: 500px;
@@ -120,6 +104,23 @@ input[type="checkbox"] {
     margin-right: 5px;
 }
 
+#registration-button {
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    background-color: #C8A27E;
+    color: #F3EDE4;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#registration-button:hover {
+    background-color: #A0816C;
+}
+/* Выпадающий список(навигация) */
 .menu-button {
     margin-left: auto;
     display: none;
@@ -156,7 +157,7 @@ input[type="checkbox"] {
 .menu-dropdown a:hover {
     background-color: #f0f0f0;
 }
-
+/* Адаптивность */
 @media (max-width: 1500px) {
     .nav-menu {
         display: none;
