@@ -1,3 +1,4 @@
+/* Общие стили */
 html, body {
     height: 100%;
     margin: 0;
@@ -40,7 +41,7 @@ button {
 button:hover {
     background-color: #A0816C;
 }
-
+/* Шапка страницы */
 header {
     background-color: #f8f8f8;
     margin: 10px;
@@ -85,56 +86,12 @@ nav ul li a {
     margin: 0 auto;
     padding: 0 20px;
 }
-
+/* Выпадающий список(навигация) */
 .menu-button {
     display: none;
     margin-left: auto;
 }
-
-@media (max-width: 1500px) {
-    .nav-menu {
-        display: none;
-    }
-
-    .menu-button {
-        display: block;
-        background-color: #C8A27E;
-        color: white;
-        font-family: 'Poppins', sans-serif;
-        font-weight: bold;
-        padding: 10px 15px;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        position: relative;
-    }
-
-    .menu-dropdown {
-        display: none;
-        position: absolute;
-        top: 60px;
-        right: 10px;
-        background: white;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        overflow: hidden;
-        z-index: 1000;
-    }
-
-    .menu-dropdown a {
-        display: block;
-        padding: 12px;
-        text-decoration: none;
-        color: #333;
-        font-weight: bold;
-        transition: background 0.3s;
-    }
-
-    .menu-dropdown a:hover {
-        background: #f0f0f0;
-    }
-}
-
+/* Оформление товаров в корзине */
 .cart-item {
     display: flex;
     flex-wrap: wrap;
@@ -212,7 +169,7 @@ nav ul li a {
     font-size: 16px;
     border-radius: 10px;
 }
-
+/* Подвал страницы */
 footer {
     background: #3f362f;
     color: white;
@@ -278,4 +235,49 @@ footer {
 
 .value:hover {
     color: #a07451;
+}
+
+/* Адаптивность */
+@media (max-width: 1500px) {
+    .nav-menu {
+        display: none;
+    }
+
+    .menu-button {
+        display: block;
+        background-color: #C8A27E;
+        color: white;
+        font-family: 'Poppins', sans-serif;
+        font-weight: bold;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        position: relative;
+    }
+
+    .menu-dropdown {
+        display: none;
+        position: absolute;
+        top: 60px;
+        right: 10px;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+        z-index: 1000;
+    }
+
+    .menu-dropdown a {
+        display: block;
+        padding: 12px;
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+        transition: background 0.3s;
+    }
+
+    .menu-dropdown a:hover {
+        background: #f0f0f0;
+    }
 }
